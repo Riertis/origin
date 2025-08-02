@@ -159,7 +159,7 @@ console.log('\nЗадание 2\n');
 const firstChar = examp.charAt(0);
 const endChar = examp.charAt(examp.length - 1);
 
-const examp2 = firstChar.toUpperCase() + examp.slice(1, examp.length -1) + endChar.toUpperCase();
+const examp2 = firstChar.toUpperCase() + examp.slice(1, examp.length - 1) + endChar.toUpperCase();
 
 console.log(examp,'\n',firstChar,'\n',endChar,'\n',examp2);
 
