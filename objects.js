@@ -68,7 +68,7 @@ console.log(user1); // {}
 console.log('-------------------------------');
 //-------------------------------------------
 
-function addProperty(user, property, value) {
+export function addProperty(user, property, value) {
   user[property] = value;
 }
 
