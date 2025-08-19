@@ -1,30 +1,30 @@
 import chalk from 'chalk';
 
-function sayHi(name) {
+export function sayHi(name) {
   console.log(`${chalk.green('Привет')}, ${chalk.blue(name)}!`);
 }
 
-function sayText(text) {
+export function sayText(text) {
   console.log(chalk.bgBlack(chalk.white(text)));
 }
 
-function square(number) {
+export function square(number) {
   return number * number;
 }
 
-function sum(a, b) {
+export function sum(a, b) {
   return a + b;
 }
 
-function power(a, b) {
+export function power(a, b) {
   return Math.pow(a, b);
 }
 
-function generateInteger(min, max) {
+export function generateInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function howManyPapers(money) {
+export function howManyPapers(money) {
   const banknotesList = [5000, 2000, 1000, 500, 100, 50, 10, 1];
   const papers = {};
   for (let i = 0; i < banknotesList.length; i++) {
@@ -38,5 +38,3 @@ function howManyPapers(money) {
   }
   return papers;
 }
-
-export { sayHi, sayText, square, sum, power, generateInteger, howManyPapers };
