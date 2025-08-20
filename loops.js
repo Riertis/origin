@@ -1,4 +1,5 @@
 import { generateInteger } from './src/function.js';
+import chalk from 'chalk';
 
 export const randomArray = (min, max, qty) => {
   let arr = [];
@@ -64,3 +65,47 @@ export function revertText(text) {
   revertArray = revertArray.join('');
   return revertArray;
 }
+
+export function peopleFilter(people) {
+  let filteredPeople = {
+    mans: [],
+    women: [],
+  };
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].gender === 'm' && people[i].age > 18) {
+      filteredPeople.mans.push(people[i].name);
+    }
+
+    if (people[i].gender === 'f' && people[i].age > 20) {
+      filteredPeople.women.push(people[i].name);
+    }
+  }
+  return filteredPeople;
+}
+
+export function elka(hightElka) {
+  const star = '*';
+  const space = ' ';
+  let qtyStar = 1;
+  let qtySpaces = hightElka - 1;
+  let stars;
+  for (let i = 0; i < hightElka; i++) {
+    let spaces = space.repeat(qtySpaces);
+    if (qtyStar % 2 > 0) {
+      stars = star.repeat(qtyStar);
+    }
+    qtyStar += 2;
+    qtySpaces--;
+
+    console.log(spaces, stars);
+  }
+}
+
+export function printNumbers(number) {
+  // let qtyNumbers = 0;
+  for (let i = 0; i <= number; i++) {
+    console.log(i);
+  }
+}
+
+printNumbers(9);
