@@ -54,3 +54,13 @@ export const doubleDices = () => {
   console.log(`Результат первого куба : ${diceOne}`);
   console.log(`Результат первого куба : ${diceTwo}`);
 };
+
+export function revertText(text) {
+  let arr = text.split('');
+  let revertArray = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    revertArray.push(arr[i]);
+  }
+  revertArray = revertArray.join('');
+  return revertArray;
+}

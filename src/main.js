@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { sayHi, sayText, square, sum, power, generateInteger, howManyPapers } from './function.js';
 import { drawMultFace } from '../switch.js';
-import { randomArray, countNumbers, getMinMaxAvgNumbers, doubleDices } from '../loops.js';
+import { randomArray, countNumbers, getMinMaxAvgNumbers, doubleDices, revertText } from '../loops.js';
 
 console.log(chalk.bgBlue(chalk.grey('Hello')));
 console.log(chalk.bgBlack(chalk.green('Hello')));
@@ -25,3 +25,6 @@ console.log(drawMultFace('mr. Crabs'));
 console.log(countNumbers(randomArray(-3, 3, 5)));
 console.log(getMinMaxAvgNumbers(randomArray(2, 15, 8)));
 console.log(doubleDices());
+
+const text = 'Создайте строковую переменную, запишите туда любой текст.';
+console.log(revertText(text));
