@@ -102,10 +102,11 @@ export function elka(hightElka) {
 }
 
 export function printNumbers(number) {
-  // let qtyNumbers = 0;
+  const arr = [];
   for (let i = 0; i <= number; i++) {
-    console.log(i);
+    arr.push(i);
   }
+  console.log(arr);
 }
 
 printNumbers(9);
