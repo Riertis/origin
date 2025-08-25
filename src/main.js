@@ -8,7 +8,10 @@ import {
   doubleDices,
   revertText,
   peopleFilter,
-  elka,
+  printElka,
+  printColorerObject,
+  printMatrixAsTable,
+  countUsersWithAge,
 } from '../loops.js';
 
 console.log(chalk.bgBlue(chalk.grey('Hello')));
@@ -53,4 +56,35 @@ const people = [
 
 console.log(peopleFilter(people));
 
-elka(7);
+printElka(7);
+
+printColorerObject({ id: 1, name: 'Max', ip: '192.10.1.3' });
+
+const matrix = [
+  ['#', 'Имя', 'Возраст', 'Особые приметы'],
+  [90, 'Паша', 23],
+  [12, 'Артём', 29],
+  [33, 'Стас', 13, 'Сидит на хлебной диете'],
+  [54, 'Хабиб', 7],
+  [35, 'Алеша', 15, 'Любит ночевать на лавочке'],
+  [50, 'Лена', 19, 'Громко чихает'],
+  [83, 'Катя', 43],
+  [56, 'Алексей', 27, 'Мяукает во сне'],
+];
+
+printMatrixAsTable(matrix);
+
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 25 },
+  { name: 'Diana', age: 35 },
+  { name: 'Eve', age: 30 },
+  { name: 'Frank', age: 28 },
+  { name: 'Grace', age: 25 },
+  { name: 'Hannah', age: 41 },
+  { name: 'Ivy', age: 30 },
+  { name: 'Jack', age: 28 },
+];
+
+countUsersWithAge(users);

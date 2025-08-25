@@ -83,7 +83,7 @@ export function peopleFilter(people) {
   return filteredPeople;
 }
 
-export function elka(hightElka) {
+export function printElka(hightElka) {
   const star = '*';
   const space = ' ';
   let qtyStar = 1;
@@ -101,12 +101,54 @@ export function elka(hightElka) {
   }
 }
 
-export function printNumbers(number) {
-  const arr = [];
-  for (let i = 0; i <= number; i++) {
-    arr.push(i);
+function compareObjects(obj1, obj2) {
+  const keys1 = Object.keys(obj1); // {a:1,b:1} => [a, b]
+  const keys2 = Object.keys(obj2); // {b:1,a:1} => [b,a]
+
+  if (keys1.length !== keys2.length) {
+    return false;
   }
-  console.log(arr);
+
+  for (let i = 0; i < keys1.length; i++) {
+    const key = keys1[i];
+
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-printNumbers(9);
+console.log(compareObjects({ a: 1, b: 3 }, { a: 1, b: 2 })); // true;
+
+export function printColorerObject(obj) {
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+
+  for (let i = 0; i < keys.length; i++) {
+    console.log(`${chalk.red(keys[i])} : ${chalk.green(values[i])}`);
+  }
+}
+
+export function printMatrixAsTable(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 1; j++) {
+      if (matrix[i][j] === 'Возраст' || matrix[i][j] === 'Алексей') {
+        continue;
+      }
+
+      matrix[i][j] = matrix[i][j] + '\t';
+    }
+    console.log(`${matrix[i].join(' ')}`);
+  }
+}
+
+export function countUsersWithAge(users) {
+  let valueCounts = {};
+  for (const user of users) {
+    valueCounts[user['age']] = (valueCounts[user['age']] || 0) + 1;
+  }
+  for (const valueCountsKey in valueCounts) {
+    console.log(`Возраст = ${valueCountsKey}. Количество людей = ${valueCounts[valueCountsKey]}`);
+  }
+}
