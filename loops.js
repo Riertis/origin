@@ -101,26 +101,6 @@ export function printElka(hightElka) {
   }
 }
 
-function compareObjects(obj1, obj2) {
-  const keys1 = Object.keys(obj1); // {a:1,b:1} => [a, b]
-  const keys2 = Object.keys(obj2); // {b:1,a:1} => [b,a]
-
-  if (keys1.length !== keys2.length) {
-    return false;
-  }
-
-  for (let i = 0; i < keys1.length; i++) {
-    const key = keys1[i];
-
-    if (obj1[key] !== obj2[key]) {
-      return false;
-    }
-  }
-  return true;
-}
-
-console.log(compareObjects({ a: 1, b: 3 }, { a: 1, b: 2 })); // true;
-
 export function printColorerObject(obj) {
   const keys = Object.keys(obj);
   const values = Object.values(obj);
@@ -151,4 +131,55 @@ export function countUsersWithAge(users) {
   for (const valueCountsKey in valueCounts) {
     console.log(`Возраст = ${valueCountsKey}. Количество людей = ${valueCounts[valueCountsKey]}`);
   }
+}
+
+export function countLongArrayAndPrintLastValue(user) {
+  const result = {};
+  let maxLength = 0;
+  let lastValue;
+
+  const userValuesArray = Object.values(user);
+  for (let i = 0; i < userValuesArray.length; i++) {
+    if (!Array.isArray(userValuesArray[i])) {
+      continue;
+    }
+    const currentLength = userValuesArray[i].length;
+    if (currentLength > maxLength) {
+      maxLength = currentLength;
+      lastValue = userValuesArray[i][maxLength - 1];
+    }
+  }
+  result.maxLen = maxLength;
+  result.lastValue = lastValue;
+  console.log(result);
+}
+
+export function compareObjects(obj1, obj2) {
+  const keys1 = Object.keys(obj1); // {a:1,b:1} => [a, b]
+  const keys2 = Object.keys(obj2); // {b:1,a:1} => [b,a]
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+    const key = keys1[i];
+
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function compareObjectArrays(arrayObj1, arrayObj2) {
+  if (arrayObj1.length !== arrayObj2.length) {
+    return false;
+  }
+  for (let i = 0; i < arrayObj1.length; i++) {
+    if (compareObjects(arrayObj1[i], arrayObj2[i]) === false) {
+      return false;
+    }
+  }
+  return true;
 }
